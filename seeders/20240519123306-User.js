@@ -10,7 +10,7 @@ module.exports = {
         name: 'Wisnu Andika',
         email: '2110511043@mahasiswa.upnvj.ac.id',
         nim: '2110511043',
-        password: await bcrypt.hash('wisnu123', 10), // Menggunakan bcrypt untuk mengenkripsi password
+        password: await bcrypt.hash('wisnu123', 10), 
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -19,7 +19,7 @@ module.exports = {
         name: 'Rizky Al Arief',
         email: '2110511069@mahasiswa.upnvj.ac.id',
         nim: '2110511069',
-        password: await bcrypt.hash('rizky123', 10), // Menggunakan bcrypt untuk mengenkripsi password
+        password: await bcrypt.hash('rizky123', 10), 
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -28,7 +28,7 @@ module.exports = {
         name: 'Muharim Awaluddin',
         email: '2110511074@mahasiswa.upnvj.ac.id',
         nim: '2110511074',
-        password: await bcrypt.hash('muharim123', 10), // Menggunakan bcrypt untuk mengenkripsi password
+        password: await bcrypt.hash('muharim123', 10),
         created_at: new Date(),
         updated_at: new Date()
       },

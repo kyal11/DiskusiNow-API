@@ -19,12 +19,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Room.init({
+    id: {
+      types: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: DataTypes.STRING,
     capacity: DataTypes.INTEGER,
     floor: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Room',
+    timestamps: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   });
   return Room;
 };
