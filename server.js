@@ -6,6 +6,9 @@ dotenv.config();
 const app = express();
 
 const appPort = process.env.APP_PORT
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 app.listen(appPort , () => {
     console.log(`Server running in htpp://127.0.0.1:${appPort}`)
