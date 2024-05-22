@@ -1,0 +1,1 @@
+const { Slot } = require("../../models")
