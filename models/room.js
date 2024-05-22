@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Room.init({
     id: {
-      types: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
@@ -31,8 +31,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Room',
     timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   });
   return Room;
 };

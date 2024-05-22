@@ -3,6 +3,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 class JWTUtils {
+    static tokenBlackList = [];
+
     static generateToken({ user }) {
         const token = jwt.sign({
             email: user.email,
@@ -16,23 +18,17 @@ class JWTUtils {
         return token;
     }
 
-    static generateRefreshToken({ user }) {
-        const refreshToken = jwt.sign({
-            email: user.email,
-            name: user.name,
-            nim: user.nim
-        },
-        process.env.JWT_REFRESH_SECRET,
-        {
-            expiresIn: "24h"
-        });
-        return refreshToken;
-    }
-
     static verifyToken(token) {
         return jwt.verify(token, process.env.JWT_SECRET);
     }
 
+    static addBlackListToken(token) {
+        this.tokenBlackList.push(token);
+    }
+
+    static isBlackListToken(token) {
+        return this.tokenBlackList.includes(token);
+    }
 }
 
-module.exports = JWTUtils;
+module.exports = JWTUtils

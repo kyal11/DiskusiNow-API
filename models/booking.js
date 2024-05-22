@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Booking.init({
     id: {
-      types: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
    },
@@ -35,8 +35,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Booking',
     timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   });
   return Booking;
 };

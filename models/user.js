@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init({
     id: {
-        types: DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
@@ -29,8 +29,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   });
   return User;
 };

@@ -36,5 +36,15 @@ class AuthService{
             throw error;
         }
     }
+    async logout(token) {
+        try {
+            JWTUtils.addBlackListToken(token);
+            return { status: false,message: 'Logout successful' };
+        } catch (error) {
+            throw error;
+        }
+    }
 }
+
+module.exports = new AuthService();
 
