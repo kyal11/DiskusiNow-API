@@ -6,7 +6,7 @@
         loginSchema
     } = require("../schemas/index");
 
-    const userRegisterValidator = (req, res, next) => {
+    const registerValidator = (req, res, next) => {
         const userData = req.body;
 
         const { error } = userSchema.validate(userData);
@@ -76,11 +76,10 @@
         next();
     };
 
-
-    module.exports = {
-        userRegisterValidator,
+ module.exports = {
+        registerValidator,
         roomValidator,
         slotValidator,
         bookingValidator,
         loginValidator
-    };
+};

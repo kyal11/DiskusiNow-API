@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const authRoutes = require("./src/routes/auth.routes");
+const allRoutes = require("./src/routes/index.routes")
 dotenv.config();
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(authRoutes)
+app.use(allRoutes)
 app.use("/", (req, res) => {
     res.json("hello")
 })

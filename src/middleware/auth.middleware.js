@@ -1,6 +1,6 @@
 const jwt = require("../utils/jwt.util")
 
-const authMiddleware = async ((req, res, next) => {
+const authMiddleware = ((req, res, next) => {
     const token = req.header("Authorization").replace("Bearer ", '');
 
     if (!token) {
@@ -18,8 +18,8 @@ const authMiddleware = async ((req, res, next) => {
             })
         }
 
-        const decoded = token.verify(token, process.env.JWT_SECRET)
-        
+        const decoded = jwt.verifyToken(token, process.env.JWT_SECRET);
+        console.log("3")
         req.user = decoded;
 
         next()
