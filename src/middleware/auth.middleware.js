@@ -1,13 +1,22 @@
 const jwt = require("../utils/jwt.util")
 
 const authMiddleware = ((req, res, next) => {
-    const token = req.header("Authorization").replace("Bearer ", '');
+    const authHeader = req.header("Authorization");
 
-    if (!token) {
-        res.status(401).json({
+
+    if (!authHeader) {
+        return res.status(401).json({
             status: false,
-            message: "Unauthorized access !"
-        })
+            message: "Authorization header is missing!"
+        });
+    }
+
+    const token = authHeader.replace("Bearer ", '');
+    if (!token) {
+        return res.status(401).json({
+            status: false,
+            message: "Unauthorized access! Token is missing."
+        });
     }
     try {
 
