@@ -1,1 +1,7 @@
-const { Slot } = require("../../models")
+const { Slot } = require("../../models");
+
+class slotRepository{
+
+}
+
+module.exports = new slotRepository();

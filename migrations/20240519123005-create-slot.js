@@ -18,7 +18,7 @@ module.exports = {
         },
         key: "id"
       },
-      star_time: {
+      start_time: {
         type: Sequelize.STRING
       },
       end_time: {

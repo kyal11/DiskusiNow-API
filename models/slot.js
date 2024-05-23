@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
      },
     room_id: DataTypes.INTEGER,
-    star_time: DataTypes.STRING,
+    start_time: DataTypes.STRING,
     end_time: DataTypes.STRING,
     is_booked: DataTypes.BOOLEAN
   }, {
