@@ -19,6 +19,33 @@ class SlotRepository {
         }
     }
 
+    async getSlotByRoomId(roomId) {
+        try {
+            const slot = await Slot.findOne({
+                where: {
+                    room_id: roomId
+                }
+            });
+            return slot;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async getSlotByStartTime(roomId, startTime) {
+        try {
+            const slot = await Slot.findOne({
+                where: {
+                    room_id: roomId,
+                    start_time: startTime
+                }
+            });
+            return slot;
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async createSlot(slotData) {
         try {
             const newSlot = await Slot.create(slotData);
