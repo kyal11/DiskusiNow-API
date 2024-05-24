@@ -4,10 +4,11 @@ class RoomRepository {
     async getAllRooms() {
         try {
             const rooms = await Room.findAll({
-                include:[{
+                include: [{
                     model: Slot,
-                    as: "slots"
-                }]
+                    as: 'slots'
+                }],
+                order: [[{ model: Slot, as: 'slots' }, 'id', 'ASC']]
             });
             return rooms;
         } catch (error) {
@@ -17,7 +18,13 @@ class RoomRepository {
 
     async getRoomById(id) {
         try {
-            const room = await Room.findByPk(id);
+            const room = await Room.findByPk(id,{
+                include: [{
+                model: Slot,
+                as: 'slots'
+            }],
+            order: [[{ model: Slot, as: 'slots' }, 'id', 'ASC']]
+        });
             return room;
         } catch (error) {
             throw error;
