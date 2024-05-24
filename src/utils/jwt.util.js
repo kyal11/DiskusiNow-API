@@ -7,6 +7,7 @@ class JWTUtils {
 
     static generateToken({ user }) {
         const token = jwt.sign({
+            id: user.id,
             email: user.email,
             name: user.name,
             nim: user.nim

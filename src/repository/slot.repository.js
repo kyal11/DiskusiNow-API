@@ -80,6 +80,19 @@ class SlotRepository {
         }
     }
 
+    async deleteStatusSlot(id) {
+        try {
+            const slot = await Slot.findByPk(id);
+            if (!slot) {
+                throw new Error('Slot not found');
+            }
+            slot.is_booked = false;
+            await slot.save();
+            return slot;
+        } catch (error) {
+            throw error;
+        }
+    }
     async deleteSlot(id) {
         try {
             const slot = await Slot.findByPk(id);

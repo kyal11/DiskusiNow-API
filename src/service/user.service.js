@@ -5,7 +5,7 @@ class userService{
         try {
             const userBookings = await bookingRepository.getBookingByUserId(userId);
             
-            if (!userBookings || userBookings.length === 0) {
+            if (!userBookings) {
                 throw new Error("No booking history found for this user.");
             }
 

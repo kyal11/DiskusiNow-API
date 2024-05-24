@@ -25,9 +25,9 @@ class bookingRepository {
                     user_id: id
                 }
             });
-            if (!bookings || bookings.length === 0) {
-                throw new Error('No bookings found for the user');
-            }
+        if (!bookings || bookings.length === 0) {
+            throw new Error('No bookings found for the user');
+        }
             return bookings; 
         } catch (error) {
             throw error;
@@ -64,7 +64,7 @@ class bookingRepository {
             if (!booking) {
                 throw new Error('Booking not found');
             }
-            await booking.destroy(dataBooking);
+            await booking.destroy();
             return booking;
         } catch (error) {
             throw error;

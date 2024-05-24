@@ -87,7 +87,8 @@ class bookingController {
         const id = req.params.id;
 
         try {
-            const deletedBooking = await bookingRepository.deleteBooking(id);
+
+            const deletedBooking = await bookingService.deleteBooking(id);
             
             res.status(200).json({
                 status: true,

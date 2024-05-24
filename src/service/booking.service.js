@@ -30,6 +30,19 @@ class bookingService {
             throw error; 
         }
     }
+    async deleteBooking(bookingId) {
+        try {
+            const dataBooking = await bookingRepository.getBookingById(bookingId);
+            const {room_id, time_booking} = dataBooking;
+            const slot = await slotRepository.getSlotByStartTime(room_id, time_booking);
+            const booking = await bookingRepository.deleteBooking(bookingId);
+            await slotRepository.deleteStatusSlot(slot.id);
+
+            return booking
+        } catch (error) {
+            throw error; 
+        }
+    }
 }
 
 module.exports = new bookingService();

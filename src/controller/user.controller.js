@@ -1,5 +1,5 @@
 const userRepository = require("../repository/user.repository");
-const bookingService = require("../service/booking.service");
+const userService = require("../service/user.service");
 
 class UserController {
     async getAllUsers(req, res) {
@@ -27,7 +27,7 @@ class UserController {
 
         try {
             const user = await userRepository.getUserById(id);
-        
+            
             if (!user) {
                 return res.status(404).json({
                     status: false,
@@ -79,7 +79,7 @@ class UserController {
     async getUserHistoryBooking(req, res) {
         const userId = req.user.id;
         try {
-            const userBookings = await bookingService.userHistoryBooking(userId);
+            const userBookings = await userService.userHistoryBooking(userId);
             
             res.status(200).json({
                 status: true,
