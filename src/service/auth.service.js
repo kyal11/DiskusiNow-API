@@ -39,7 +39,7 @@ class AuthService{
     async logout(token) {
         try {
             JWTUtils.addBlackListToken(token);
-            return { status: false,message: 'Logout successful' };
+            return { status: true,message: 'Logout successful' };
         } catch (error) {
             throw error;
         }

@@ -10,7 +10,7 @@ class RoomController {
                 data: rooms
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -36,7 +36,7 @@ class RoomController {
                 data: room
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -55,7 +55,7 @@ class RoomController {
                 data: newRoom
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -75,7 +75,7 @@ class RoomController {
                 data: updatedRoom
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -93,7 +93,7 @@ class RoomController {
                 message: "Room deleted successfully"
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });

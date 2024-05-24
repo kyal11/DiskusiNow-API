@@ -11,7 +11,7 @@ class SlotController {
                 data: slots
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -37,7 +37,7 @@ class SlotController {
                 data: slot
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -56,7 +56,7 @@ class SlotController {
                 data: newSlot
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -76,7 +76,7 @@ class SlotController {
                 data: updatedSlot
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -94,7 +94,7 @@ class SlotController {
                 message: "Slot deleted successfully"
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });

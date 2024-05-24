@@ -54,7 +54,19 @@ class SlotRepository {
             throw error;
         }
     }
-
+    async updateStatusSlot(id) {
+        try {
+            const slot = await Slot.findByPk(id);
+            if (!slot) {
+                throw new Error('Slot not found');
+            }
+            slot.is_booked = true;
+            await slot.save();
+            return slot;
+        } catch (error) {
+            throw error;
+        }
+    }
     async updateSlot(id, slotData) {
         try {
             const slot = await Slot.findByPk(id);

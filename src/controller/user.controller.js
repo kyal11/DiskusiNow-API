@@ -1,4 +1,5 @@
 const userRepository = require("../repository/user.repository");
+const bookingService = require("../service/booking.service");
 
 class UserController {
     async getAllUsers(req, res) {
@@ -14,7 +15,7 @@ class UserController {
                 data: filterDataUser
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -40,7 +41,7 @@ class UserController {
                 data: user
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -69,7 +70,24 @@ class UserController {
                 }
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
+                status: false,
+                message: error.message
+            });
+        }
+    }
+    async getUserHistoryBooking(req, res) {
+        const userId = req.user.id;
+        try {
+            const userBookings = await bookingService.userHistoryBooking(userId);
+            
+            res.status(200).json({
+                status: true,
+                message: "User booking history retrieved successfully",
+                data: userBookings
+            });
+        } catch (error) {
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -98,7 +116,7 @@ class UserController {
                 }
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -124,7 +142,7 @@ class UserController {
                 }
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });
@@ -142,7 +160,7 @@ class UserController {
                 message: "User deleted successfully"
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: false,
                 message: error.message
             });

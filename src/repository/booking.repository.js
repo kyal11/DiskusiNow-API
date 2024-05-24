@@ -18,6 +18,22 @@ class bookingRepository {
             throw error;
         }
     }
+    async getBookingByUserId(id) {
+        try {
+            const bookings = await Booking.findAll({
+                where: {
+                    user_id: id
+                }
+            });
+            if (!bookings || bookings.length === 0) {
+                throw new Error('No bookings found for the user');
+            }
+            return bookings; 
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async createBooking(dataBooking) {
         try {
             const newBooking = await Booking.create(dataBooking);
@@ -55,3 +71,5 @@ class bookingRepository {
         }
     }
 }
+
+module.exports = new bookingRepository();
