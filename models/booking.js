@@ -2,6 +2,7 @@
 const {
   Model
 } = require("sequelize");
+const { format, parseISO } = require('date-fns')
 module.exports = (sequelize, DataTypes) => {
   class Booking extends Model {
     /**
@@ -27,7 +28,17 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     room_id: DataTypes.INTEGER,
     no_phone: DataTypes.STRING,
-    date: DataTypes.DATE,
+    date: {
+      type: DataTypes.DATE,
+      get() {
+        const rawValue = this.getDataValue('date');
+        return rawValue ? format(rawValue, 'dd-MM-yyyy') : null;
+      },
+      set(value) {
+        const formattedDate = parseISO(value.split('-').reverse().join('-'))
+        this.setDataValue('date', formattedDate)
+      }
+    },
     participant: DataTypes.INTEGER,
     time_booking: DataTypes.STRING,
     description: DataTypes.TEXT
