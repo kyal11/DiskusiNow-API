@@ -3,18 +3,20 @@ const roomRepository = require("../repository/room.repository");
 const slotRepository = require("../repository/slot.repository");
 
 class bookingService {
-    async createBooking(userId, dataBooking) {
+    async createBooking(userData, dataBooking) {
         try {
             const { room_id, time_booking, no_phone, date, participant, description } = dataBooking;
-            
+            const roomData = await roomRepository.getRoomById(room_id);
             const slot = await slotRepository.getSlotByStartTime(room_id, time_booking);
             if (!slot || slot.is_booked) {
                 throw new Error("Slot is not available");
             }
 
             const newBookingData = {
-                user_id: userId,
+                user_id: userData.id,
+                user_name: userData.name,
                 room_id: room_id,
+                room_name: roomData.name,
                 no_phone: no_phone,
                 date: date,
                 participant: participant,

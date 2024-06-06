@@ -45,11 +45,11 @@ class bookingController {
         }
     }
     async createBooking(req, res) {
-        const userId = req.user.id;
+        const userData = req.user
         const dataBooking = req.body;
         
         try {
-            const newBooking = await bookingService.createBooking(userId, dataBooking);
+            const newBooking = await bookingService.createBooking(userData, dataBooking);
             
             res.status(201).json({
                 status: true,

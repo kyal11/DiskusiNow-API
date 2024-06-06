@@ -26,7 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
    },
     user_id: DataTypes.INTEGER,
+    user_name: DataTypes.STRING,
     room_id: DataTypes.INTEGER,
+    room_name: DataTypes.STRING,
     no_phone: DataTypes.STRING,
     date: {
       type: DataTypes.DATE,

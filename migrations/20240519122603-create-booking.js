@@ -18,6 +18,9 @@ module.exports = {
           }
         }
       },
+      user_name: {
+        type: Sequelize.STRING
+      },
       room_id: {
         type: Sequelize.INTEGER,
         references: {
@@ -26,6 +29,9 @@ module.exports = {
             key: "id"
           }
         }
+      },
+      room_name: {
+        type: Sequelize.STRING
       },
       no_phone: {
         type: Sequelize.STRING

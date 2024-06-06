@@ -7,7 +7,10 @@ module.exports = {
     const slots = [];
 
     rooms.forEach(roomId => {
-      for (let hour = 8; hour < 16; hour++) {
+      for (let hour = 8; hour < 17; hour++) {
+        if (hour == 12) {
+          continue
+        }
         slots.push({
           room_id: roomId,
           start_time: `${hour.toString().padStart(2, '0')}:00`,
