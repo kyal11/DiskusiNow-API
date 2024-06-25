@@ -6,11 +6,11 @@ module.exports = {
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DATABASE,
     host: process.env.POSTGRES_HOST,
-    dialect: process.env.DATABASE_DIALECT || 'postgres',
+    dialect: 'postgres',
     dialectOptions: {
       ssl: {
-        require: true, // This will help you connect to your DB with SSL
-        rejectUnauthorized: false // This line will fix the error
+        require: true,
+        rejectUnauthorized: false
       }
     }
   },
@@ -19,7 +19,7 @@ module.exports = {
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DATABASE,
     host: process.env.POSTGRES_HOST,
-    dialect: process.env.DATABASE_DIALECT || 'postgres',
+    dialect: 'postgres',
     dialectOptions: {
       ssl: {
         require: true,
@@ -28,8 +28,8 @@ module.exports = {
     }
   },
   production: {
-    use_env_variable: 'POSTGRES_URL', // Use the URL directly for production
-    dialect: process.env.DATABASE_DIALECT || 'postgres',
+    use_env_variable: 'POSTGRES_URL',
+    dialect: 'postgres',
     dialectOptions: {
       ssl: {
         require: true,
